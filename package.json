@@ -1,0 +1,24 @@
+{
+  "name": "movie-traile",
+  "version": "1.0.0",
+  "description": "koa2 电影预告片",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lwenli1224/movie-traile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lwenli1224/movie-traile/issues"
+  },
+  "homepage": "https://github.com/Lwenli1224/movie-traile#readme",
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
+}
