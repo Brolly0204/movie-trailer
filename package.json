@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Lwenli1224/movie-traile#readme",
   "dependencies": {
-    "koa": "^2.7.0"
+    "ejs": "^2.6.1",
+    "koa": "^2.7.0",
+    "pug": "^2.0.3"
   }
 }
