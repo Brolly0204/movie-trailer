@@ -6,6 +6,11 @@ const sleep = (time) => new Promise(resolve => {
   setTimeout(resolve, time)
 })
 
+// 接收主进程发来的消息
+process.on('message', m => {
+  console.log('子进程收到消息', m)
+})
+
 ;(async () => {
 
   const browser = await puppeteer.launch({
@@ -49,5 +54,8 @@ const sleep = (time) => new Promise(resolve => {
   })
 
   browser.close()
-  console.log(result)
+
+  process.send({result}, function() {
+    process.exit(0)
+  })
 })()
