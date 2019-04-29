@@ -4,10 +4,214 @@ block title
   title Koa Douban 首页
 
 block content
-  .container
+  style.
+    header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      background: #00474f;
+      color: #E7DACB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      z-index: 500;
+    }
+
+    @media (min-width: 768px) {
+      .sidebar {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 4rem;
+        z-index: 1000;
+        height: calc(100vh - 4rem);
+        border-right: 1px solid rgba(0,0,0,.1);
+        order: 0;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+      }
+
+      .cat-links {
+        display: block!important;
+        max-height: calc(100vh - 9rem);
+        overflow-y: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+    }
+
+    .sidebar-link {
+      display: block;
+      padding: .25rem 1.5rem;
+      font-weight: 500;
+      color: rgba(0,0,0,.65);
+    }
+
+    .sidebar .nav > li > a {
+      display: block;
+      padding: .25rem 1.5rem;
+      font-size: 90%;
+      color: rgba(0,0,0,.65);
+    }
+
+    .sidebar-item.active > .sidebar-inner {
+      display: block;
+    }
+    .card {
+      margin-bottom: 1.5rem;
+    }
+    .switcher {
+      position: relative;
+      padding: 1rem 15px;
+      margin-right: -15px;
+      margin-left: -15px;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+    .sidebar-toggle {
+      line-height: 1;
+      color: #212529;
+    }
+    .p-0 {
+      padding: 0!important;
+    }
+    .ml-3, .mx-3 {
+      margin-left: 1rem!important;
+    }
+    .btn-link {
+      font-weight: 400;
+      color: #007bff;
+      background-color: transparent;
+    }
+  include ./includes/header
+  .container-fluid
     .row
-      .col-md-8
-        h1 Hi #{you}
-        p This is #{me}
-      .col-md-4
-        p 测试静态 HTML 页面
+      .col-12.col-md-3.col-xl-2.sidebar
+        .collapse.cat-links
+          .sidebar-item.active
+            a.sidebar-link(href='/') Links
+            ul.nav.sidebar-inner
+              li.active.sidebar-inner-active
+                a(href='/') Link1
+              li.sidebar-inner-active
+                a(href='/') Link2
+      .col-12.col-md-9.col-xl-9.py-md-3.pl-md-5.content
+        .row
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2541901817.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2544988187.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2541240741.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新
+        .row
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2541901817.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2544988187.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2541240741.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新      
+        .row
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2541901817.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2544988187.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新
+          .col-md-4
+            .card
+              img.card-img-top(src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2541240741.webp", data-video="http://ips.ifeng.com/video19.ifeng.com/video09/2018/12/10/p5880904-102-009-091937.mp4?vid=37ac3bf2-552b-4581-bcaf-a7737bdade2e&uid=1552740393387_rypxnu3806&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E7%94%B5%E5%BD%B1%E8%B5%84%E8%AE%AF&cat=70-74&ptype=70&platform=pc&sourceType=h5&dt=1544404735000&gid=RH6qAWpnChSr&sign=4a999b851d8067f74ee8e8734e30f28a&tm=1556506875054")
+              .card-body
+                h4.card-title 电影标题
+                p.card-desc 电影描述
+              .card-footer
+                small.text-muted 1天前更新
+  #myModal.modal.fade.bd-example-modal-lg(tabindex="-1", role="dialog" aria-labelledby="myLarg")
+    .modal-dialog.modal-lg
+      #videoModal.modal-content
+  include ./includes/script
+  
+  script.
+    let player = null
+    $(function() {
+      $('.card-img-top').click(function(e) {
+        const url = $(this).data('video')
+        const pic = $(this).prop('src')
+
+        // modal隐藏事件
+        $('#myModal').on('hidden.bs.modal', function(e) {
+          if (player && player.pause) player.pause()
+        })
+
+        // 让modal显示
+        $('#myModal').modal('show')
+        
+        console.log(player)
+        if (!player) {
+          player = new DPlayer({
+            container: document.getElementById('videoModal'),
+            screenshot: true,
+            autoplay: true,
+            video: {
+              url,
+              pic,
+              thumbnails: pic,
+              type: 'auto'
+            }
+          })
+        } else {
+          if (player.video.currentSrc === url) return
+          player.switchVideo({
+            type: 'auto',
+            url,
+            pic,
+            thumbnails: pic
+          })
+        }
+      })
+    })
