@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Lwenli1224/movie-traile#readme",
   "dependencies": {
     "@babel/runtime": "^7.4.4",
+    "axios": "^0.18.0",
     "ejs": "^2.6.1",
     "koa": "^2.7.0",
     "koa-static": "^5.0.0",
