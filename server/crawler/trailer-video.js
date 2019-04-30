@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 
 const baseURL = 'https://movie.douban.com/subject/'
-const doubanId = 25986662
+const doubanId = 1295644
 const videoBase = 'https://movie.douban.com/trailer/219491'
 
 const sleep = time => new Promise((resolve, reject) => {
@@ -42,7 +42,7 @@ const sleep = time => new Promise((resolve, reject) => {
     
     video = await page.evaluate(() => {
       const $ = window.$
-      const $source = $('#player-html5-241313_html5_api').find('source')
+      const $source = $('.vjs-tech').find('source')
       return $source && $source.prop('src')
     })
     result.video = video
